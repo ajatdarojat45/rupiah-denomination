@@ -14,4 +14,5 @@ lalu akses <http://localhost:3000> di browser (Ex. Chrome).
 ## Demo
 Untuk melihat demo bisa kunjungi link berikut : **<http://rupiah-denomination.netlify.com>**
 
-Made with ❤️| by [Ajat Darojat](http://ajatdarojat45.id)
+***
+Made with ❤️  |  by [Ajat Darojat](http://ajatdarojat45.id)
