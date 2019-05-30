@@ -1,0 +1,33 @@
+.home {
+  margin-top: 100px;
+}
+
+.container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 600px;
+  text-align: center;
+}
+
+.title {
+  font-weight: 600;
+  margin-bottom: 20px;
+  font-size: 30px;
+  color: '#333';
+}
+
+
+@media screen and (min-width:701px) {
+  .home {
+    margin-top: 150px;
+  }
+
+  .title {
+    font-weight: 600;
+    margin-bottom: 20px;
+    font-size: 40px;
+    color: '#333';
+  }
+}

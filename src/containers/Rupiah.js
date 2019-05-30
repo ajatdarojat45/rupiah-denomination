@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Grid, Typography } from '@material-ui/core'
+import { Grid } from '@material-ui/core'
 import SampleTable from '../components/SampleTable'
 import SampleForm from '../components/SampleForm';
 
@@ -9,7 +9,6 @@ class Rupiah extends Component {
     this.state = {
       fractions: [100000, 50000, 20000, 10000, 5000, 1000, 500, 100, 50],
       amount: '',
-      validAmount: 0,
       error: false,
       textError: '',
       results: [],
@@ -33,6 +32,7 @@ class Rupiah extends Component {
     let temps = [];
     let results = [];
     const validation = this.handleValidationAmount();
+
     if (validation) {      
       amount = validation
       // calculate the minimum number of rupiahs process
@@ -46,10 +46,10 @@ class Rupiah extends Component {
         }
       }
       // sort descending the result above
-      let resultOrder = temps.length - 1
+      let resultsOrder = temps.length - 1
       temps.forEach((value, key) => {
-        results[resultOrder] = { amount: key, qty: value }
-        resultOrder--
+        results[resultsOrder] = { amount: key, qty: value }
+        resultsOrder--
       });
 
       this.setState({
@@ -59,7 +59,6 @@ class Rupiah extends Component {
         textError: '',
       });
     }
-
   }
 
   handleValidationAmount = () => {
@@ -91,33 +90,31 @@ class Rupiah extends Component {
         return false
       }
     }
+    
     return parseInt(amount)
   }
 
   render(){
     return (
-      <div>
-      <Grid container spacing={1} style={{textAlign:'center', fontWeight:'bold'}}>
-        <Grid item xs={4}></Grid>
-        <Grid item xs={4}>
-          <Typography className="title" component="h4" variant="h4" gutterBottom>
-              Rupiah Denominations
-          </Typography>
+      <div className="container">
+        <Grid container spacing={1}>
+          <Grid item xs={12}>
+            <p className="title">Rupiah Denominations</p>
+          </Grid>
         </Grid>
-      </Grid>
-      <SampleForm
-        amount={this.state.amount}
-        error={this.state.error}
-        textError={this.state.textError}
-        onAmountChange={(e) => this.handleAmountChange(e)}
-        onKeyPress={(e) => this.handleKeyPress(e)}
-        onProcess={(e) => this.handleProcess(e)}
-      />
-      <SampleTable
-        data={this.state.results}
-        amountLeft={this.state.amountLeft}
-      />
-    </div>
+        <SampleForm
+          amount={this.state.amount}
+          error={this.state.error}
+          textError={this.state.textError}
+          onAmountChange={(e) => this.handleAmountChange(e)}
+          onKeyPress={(e) => this.handleKeyPress(e)}
+          onProcess={(e) => this.handleProcess(e)}
+        />
+        <SampleTable
+          data={this.state.results}
+          amountLeft={this.state.amountLeft}
+        />
+      </div>
     )
   }
 }

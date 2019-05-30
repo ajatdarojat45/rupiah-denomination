@@ -13,8 +13,8 @@ const SampleTable = props => {
   return (
     <div>
       <Grid container spacing={1} >
-        <Grid item xs={4}></Grid>
-        <Grid item xs={4}>
+        <Grid item xs={1}></Grid>
+        <Grid item xs={10}>
           { props.data && props.data.length > 0 && 
             <Paper style={{ marginTop: 15 }}>
               <Table>
@@ -60,9 +60,7 @@ const SampleTable = props => {
   );
 }
 
-SampleTable.displayName = 'SimpleTable'
 SampleTable.propTypes = {
-  // classes: PropTypes.object.isRequired,
   data: PropTypes.array.isRequired,
   amountLeft: PropTypes.number
 }
